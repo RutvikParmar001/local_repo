@@ -6,11 +6,20 @@ const port = 3000;
 
 //? middleware
 
+app.set('view engine','hbs');
 app.use(express.static('public'));
+
+
 
 app.get("/",(req,res)=>{
 
-   res.sendFile(__dirname,'/public/index.html');
+//? for handlbar
+
+res.render('index');
+
+
+//? for html file
+//    res.sendFile(__dirname,'/public/index.html');
 
 })
 
