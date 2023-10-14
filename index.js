@@ -17,7 +17,13 @@ app.get("/",(req,res)=>{
 
 app.get("/about",(req,res)=>{
 
-    res.send("Hello you shuold know me");
+    res.send("Hello you shuold know about me");
+
+})
+
+app.get("/weather",(req,res)=>{
+
+    res.send("Hello I am Weather");
 
 })
 
