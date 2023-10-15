@@ -1,17 +1,22 @@
 const express = require("express");
 const path = require("path");
+const hbs = require("hbs");
 const app = express();
 
 
-const newpath = path.join(__dirname,"templets");
+const newpath = path.join(__dirname,"/templats/views");
+const partialspath = path.join(__dirname,"/templats/partials")
+
 
 
 const port = 3000;
 
 //? middleware
 
-// app.use(express.static('views'));
+// app.use(express.static('public'));
 app.set('view engine','hbs');
+app.set('views',newpath);
+hbs.registerPartials(partialspath);
 
 
 app.get("/",(req,res)=>{
