@@ -2,13 +2,16 @@ const express = require("express");
 const path = require("path");
 const app = express();
 
+
+const newpath = path.join(__dirname,"templets");
+
+
 const port = 3000;
 
 //? middleware
 
+// app.use(express.static('views'));
 app.set('view engine','hbs');
-app.use(express.static('public'));
-
 
 
 app.get("/",(req,res)=>{
@@ -17,25 +20,19 @@ app.get("/",(req,res)=>{
 
 res.render('index');
 
+// res.send("hello how are you");
+
 
 //? for html file
 //    res.sendFile(__dirname,'/public/index.html');
 
 })
 
-
-app.get("/about",(req,res)=>{
-
-    res.send("Hello you shuold know about me");
-
-})
-
 app.get("/weather",(req,res)=>{
 
-    res.send("Hello I am Weather");
+   res.render("weather");
 
 })
-
 
 
 app.listen(port,()=>{
