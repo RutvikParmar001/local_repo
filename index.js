@@ -23,8 +23,20 @@ app.get("/",(req,res)=>{
 })
 
 
+app.get("/weather",(req,res)=>{
+    res.render('weather');
+})
+
+
+app.get("*",(req,res)=>{
+    res.render('404err',{
+        errorMsg:'hops! Page Not Found'
+    });
+})
+
+
 app.listen(port,()=>{
-    console.log("this is done bro");
+    console.log("ok done");
 })
 
 
