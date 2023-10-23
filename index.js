@@ -16,6 +16,16 @@ app.set('views',new_path);
 hbs.registerPartials(newpath);
 
 
+app.use('/public', express.static('public', {
+    setHeaders: (res, path) => {
+      if (path.endsWith('.js')) {
+        res.setHeader('Content-Type', 'application/javascript');
+      }
+    }
+  }));
+  
+
+
 app.get("/",(req,res)=>{
 
     res.render('index');
